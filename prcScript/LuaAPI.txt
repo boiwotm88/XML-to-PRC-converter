@@ -1,0 +1,62 @@
+﻿[Globals]
+
+arg : table
+    environment args supplied by prcScript
+time : function()
+    <from os.time>
+clock : function()
+    <from os.clock>
+date : function()
+    <from os.date>
+sandboxed : boolean
+    <returns true if prcScript is run with the -s flag>
+labeled : boolean
+    <returns true if prcScript is run with the -l flag>
+hash : function
+    <returns the hash of a string>
+label : function
+    <returns the label from a hash (assuming labels loaded)>
+label2hash : function
+    <returns the hash from a label (assuming labels loaded)>
+
+Lib : userdata
+|   <contains methods and properties to interact with params>
++-> open_dir : string
+|       <gets or sets the directory root for opening params>
++-> save_dir : string
+|       <gets or sets the directory root for saving params>
++-> open : function(string)
+|       <returns a param object using the given relative path>
++-> save : function(param)
+|       <saves a param object, assumes the last relative open path>
++-> save : function(param, string)
+|       <saves a param object using the given relative path>
++-> table2param : function(table)
+        <converts a lua table to param userdata>
+        <you can convert params to tables through param methods>
+
+[Other]
+param : userdata
+|   <returned from Param:open, expected in Param:save>
++-> type : string
+|       <gets the ParamType name of the associated param>
++-> value : any
+|       <gets or sets the value of the param>
+|       <does nothing if the param type is not a value>
++-> value_string : string
+|       <gets ot sets the value of the param, using strings>
+|       <for hash40s, if labels are loaded this means the result is either>
+|       <a formatted hex number or the hash's associated label>
++-> by_hash : function(ulong)
+|       <returns a struct's child param using provided hash>
++-> by_label : function(string)
+|       <returns a struct's child param using string label>
++-> by_index : function(number)
+|       <returns a struct's or list's child using index>
++-> to_table : function
+|       <converts the param to table format>
+|       <values  -> contains "type" and "value" keys>
+|       <lists   -> contains "type" and indexed params>
+|       <structs -> contains "type" and indexed {hash, param} tables>
++-> clone : function
+        <returns a deep copy of the param>

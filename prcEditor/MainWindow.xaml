@@ -1,0 +1,75 @@
+﻿<Window x:Class="prcEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:prc="clr-namespace:paracobNET;assembly=paracobNET"
+        xmlns:core="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:prcEditor"
+        mc:Ignorable="d"
+        Title="prcEditor"
+        Icon="Resources\prcEditor.png"
+        Height="600" Width="800"
+        ContentRendered="Window_ContentRendered"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        PreviewKeyUp="Window_PreviewKeyUp"
+        KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="8,2"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="8,2"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainGrid">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="1,0.5" EndPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+                <GradientStop Color="White"/>
+                <GradientStop Color="LightGray" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Open"
+                          InputGestureText="Ctrl O"
+                          x:Name="OpenFileButton"
+                          Click="OpenFileButton_Click"
+                          IsEnabled="{Binding IsOpenEnabled}"/>
+                <MenuItem Header="Save"
+                          InputGestureText="Ctrl S"
+                          x:Name="SaveFileButton"
+                          Click="SaveFileButton_Click"
+                          IsEnabled="{Binding IsSaveEnabled}"/>
+            </MenuItem>
+            <MenuItem Header="Labels">
+                <MenuItem Header="Edit"
+                          x:Name="EditLabelButton"
+                          Click="EditLabelButton_Click"
+                          IsEnabled="{Binding IsLabelEditEnabled}"/>
+                <MenuItem Header="Save"
+                          x:Name="SaveLabelButton"
+                          Click="SaveLabelButton_Click"
+                          IsEnabled="{Binding IsLabelSaveEnabled}"/>
+                <MenuItem Header="Download"
+                          x:Name="DownloadLabelButton"
+                          Click="DownloadLabelButton_Click"
+                          IsEnabled="{Binding IsLabelDownloadEnabled}"/>
+            </MenuItem>
+        </Menu>
+        <ContentControl x:Name="BodyContent" Grid.Row="1" Content="{Binding Body}"/>
+        <StatusBar Grid.Row="2"
+                   Background="Transparent">
+            <TextBlock x:Name="StatusTB" Text="{Binding StatusMessage}"/>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "M89fLdVaMTj/YRsOcva+ZoxrcZMkjXoz3dhXs3Mwcg2OV6xprm1PqQ+dGBV2CyNbi/IPP4S+7B5OH/Y2VFc/4Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\justi\\Desktop\\paracobNET-master\\ParamXML\\ParamXML.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Help.txt" />
+    <None Remove="LuaAPI.txt" />
+    <None Remove="sandbox.lua" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Help.txt" />
+    <EmbeddedResource Include="LuaAPI.txt" />
+    <EmbeddedResource Include="sandbox.lua" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\paracobNET\paracobNET.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLua" Version="1.4.20" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+﻿prcScript: edit params through lua
+
+expects: [script files]
+
+options:
+  -h = print help text
+       (alias: --help)
+
+  -a = print lua api
+       (alias: --api)
+
+  -e = set environment for prev lua script <arg count> [args]
+       (alias: --env)
+
+  -l = load label file <path>
+
+  -s = sandbox lua environment (prevents running unsafe code)
+       (alias: --sandbox)
